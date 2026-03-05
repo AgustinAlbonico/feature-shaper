@@ -1,0 +1,43 @@
+schema: spec-driven
+
+context: |
+  Proyecto: feature-shaper
+  Herramienta que actúa como etapa intermedia entre "idea vaga" y OpenSpec/SDD.
+  Conduce una conversación adaptativa de negocio y produce una feature definition completa.
+
+  Componentes:
+  1. Binario Go standalone `feature-shaper` (DB SQLite global + MCP server stdio + TUI Bubble Tea)
+  2. Skill conversacional `feature-shaper` (protocolo de 5.5 fases para OpenCode)
+  3. Tres commands: /shape, /shape-refine, /shape-catalog
+
+  Tech stack:
+  - Go 1.22+ para el binario
+  - modernc.org/sqlite (sin CGO, crítico para Windows)
+  - mark3labs/mcp-go para MCP server stdio
+  - charmbracelet/bubbletea + bubbles + lipgloss para TUI
+  - Markdown para skill y commands de OpenCode
+
+  Entorno: Windows 11, PowerShell, OpenCode con soporte MCP local
+  DB global en ~/.feature-shaper/features.db (patrón similar a Engram)
+
+  Documentación completa en docs/:
+  - docs/proposal.md — propuesta del proyecto
+  - docs/architecture.md — arquitectura, DB schema, MCP tools, TUI
+  - docs/spec-feature-shaper.md — spec módulo a módulo del binario Go
+  - docs/spec-skill-and-commands.md — protocolo del skill + commands
+  - docs/spec-output-format.md — formato del .md generado
+  - docs/implementation-plan.md — plan paso a paso
+
+rules:
+  proposal:
+    - Basarse en docs/proposal.md como fuente principal
+    - El proyecto es greenfield, no hay código existente
+    - Mantener enfocado en el "qué y por qué", no en detalles técnicos
+  design:
+    - Basarse en docs/architecture.md y docs/spec-feature-shaper.md
+    - Incluir decisiones de arquitectura clave documentadas
+    - Referenciar el schema SQLite completo y las 8 MCP tools
+  tasks:
+    - Seguir el orden de implementación de docs/implementation-plan.md
+    - La TUI (Paso 5) es la última prioridad después de DB+MCP+Skill
+    - Cada tarea debe ser atómica y verificable

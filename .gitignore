@@ -1,0 +1,59 @@
+# Binarios
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go
+*.test
+*.out
+go.work
+go.work.sum
+
+# Build
+/bin/
+/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Local config y secrets
+.env
+.env.*
+*.local.json
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage.txt
+coverage.html
+
+# Dependency directories
+vendor/
+
+# SQLite DB local (la DB global está en ~/.feature-shaper/)
+*.db
+*.db-journal
+*.db-wal
+
+# Node modules (si hay skills/commands)
+node_modules/
+
+# Temporal
+tmp/
+temp/
+*.tmp
+*.temp
