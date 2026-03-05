@@ -4,6 +4,59 @@ Esta guía te explica cómo instalar feature-shaper desde cero en tu sistema.
 
 ---
 
+## Instalación Rápida (Recomendada)
+
+### Descargar desde Releases
+
+La forma más fácil es descargar el ejecutable precompilado desde [GitHub Releases](https://github.com/AgustinAlbonico/feature-shaper/releases).
+
+**Windows:**
+
+1. Descarga `feature-shaper-windows-amd64.zip` (o `arm64` para ARM)
+2. Descomprime el archivo
+3. Agrega el ejecutable a tu PATH:
+
+```powershell
+# Opción 1: Mover a un directorio ya en PATH
+move feature-shaper-windows-amd64.exe C:\Windows\feature-shaper.exe
+
+# Opción 2: Agregar el directorio al PATH (PowerShell)
+$env:PATH += ";C:\ruta\a\feature-shaper"
+
+# Opción 3: Agregar permanentemente
+[Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\ruta\a\feature-shaper", "User")
+```
+
+**Linux/macOS:**
+
+```bash
+# Descargar
+curl -LO https://github.com/AgustinAlbonico/feature-shaper/releases/latest/download/feature-shaper-linux-amd64.tar.gz
+
+# Descomprimir
+tar -xzvf feature-shaper-linux-amd64.tar.gz
+
+# Hacer ejecutable
+chmod +x feature-shaper
+
+# Mover a PATH
+sudo mv feature-shaper /usr/local/bin/
+```
+
+**Verificar:**
+
+```powershell
+feature-shaper --help
+```
+
+---
+
+## Instalación desde Código Fuente
+
+Si prefieres compilar desde el código fuente, continúa con los siguientes pasos.
+
+---
+
 ## Requisitos Previos
 
 ### 1. Go 1.22 o superior
@@ -29,6 +82,21 @@ git --version
 ```
 
 ---
+
+## Instalación Paso a Paso
+
+### Paso 1: Obtener el código
+
+**Opción A: Clonar el repositorio**
+
+```powershell
+git clone https://github.com/agustinalbonico/feature-shaper.git
+cd feature-shaper
+```
+
+**Opción B: Descargar ZIP**
+
+Descarga el ZIP del repositorio y descomprímelo en tu directorio preferido.
 
 ## Instalación Paso a Paso
 

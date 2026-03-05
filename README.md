@@ -16,24 +16,43 @@ Herramienta que transforma ideas vagas en definiciones de features completas y e
   Guardada en DB global + docs/features/<slug>.md
 ```
 
-## Inicio Rápido
+## Instalación
+
+### Desde Releases (Recomendado)
+
+Descarga el ejecutable desde [GitHub Releases](https://github.com/AgustinAlbonico/feature-shaper/releases):
 
 ```powershell
-# 1. Compilar e instalar
-cd tools/feature-shaper
-go install ./cmd/feature-shaper/...
+# Windows: descargar feature-shaper-windows-amd64.zip
+# Descomprimir y agregar al PATH
+```
 
-# 2. Crear la base de datos
+### Desde Código Fuente
+
+```powershell
+git clone https://github.com/AgustinAlbonico/feature-shaper.git
+cd feature-shaper/tools/feature-shaper
+go install ./cmd/feature-shaper/...
+```
+
+## Configuración
+
+```powershell
+# 1. Crear la base de datos
 feature-shaper migrate
 
-# 3. Registrar el MCP en opencode.json
+# 2. Registrar el MCP en opencode.json
 # Agregar en ~/.config/opencode/opencode.json:
 # "feature-shaper": { "type": "local", "command": ["feature-shaper", "mcp"], "enabled": true }
 
-# 4. Instalar el skill
+# 3. Instalar el skill
+cd tools/feature-shaper
 npx skills add . --skill feature-shaper --agent opencode -y
+```
 
-# 5. Usar
+## Uso
+
+```
 /shape "mi primera feature"
 ```
 
